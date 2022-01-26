@@ -12,10 +12,10 @@ echo "RUN pip install flask" >> tempdir/Dockerfile
 echo "COPY ./static /home/myapp/static/" >> tempdir/Dockerfile
 echo "COPY ./templates /home/myapp/templates/" >> tempdir/Dockerfile
 echo "COPY sample_app.py /home/myapp" >> tempdir/Dockerfile
-echo "EXPOSE 5050" >> tempdir/Dockerfile
+echo "EXPOSE 5050" >> tempdir/Dockerfile #cambia de 8080 > 5050
 echo "CMD python3 /home/myapp/sample_app.py" >> tempdir/Dockerfile
 
 cd tempdir
 docker build -t sampleapp . 
-docker run -t -d -p 5050:5050 --name samplerunningjenkins sampleapp
+docker run -t -d -p 5050:5050 --name samplerunningjenkins sampleapp #cambia de 8080 > 5050
 docker ps -a
